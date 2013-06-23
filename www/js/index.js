@@ -38,7 +38,7 @@ var app = {
     	 xhr.open('GET', 'https://api.github.com/legacy/repos/search/javascript', true);
     	  // Response handlers.
     	  xhr.onload = function () {
-    	     var repos = JSON.parse(xhr.response);
+    	     var repos = JSON.parse(xhr.responseText);
     	     var i;
     	     var reposHTML = "";
     	     for (i = 0; i < repos.repositories.length; i++) {
