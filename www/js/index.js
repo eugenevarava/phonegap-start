@@ -38,7 +38,9 @@ var app = {
     	 xhr.open('GET', 'https://api.github.com/legacy/repos/search/javascript', true);
     	  // Response handlers.
     	  xhr.onload = function () {
-    	     var repos = JSON.parse(xhr.response), i, reposHTML = "";
+    	     var repos = JSON.parse(xhr.response);
+    	     var i;
+    	     var reposHTML = "";
     	     for (i = 0; i < repos.repositories.length; i++) {
     	       reposHTML += "<p><a href='https://github.com/" + repos.repositories[i].username + "/" + repos.repositories[i].name + "'>" + repos.repositories[i].name + "</a><br>" + repos.repositories[i].description + "</p>";
     	     }
@@ -48,7 +50,7 @@ var app = {
     	  xhr.onerror = function () {
     	     alert('error making the request.');
     	  };
-
+    	  document.getElementById("allRepos").innerHTML = 'sending request...';
     	xhr.send();
     },
     // Update DOM on a Received Event
