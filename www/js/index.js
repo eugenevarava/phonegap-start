@@ -33,9 +33,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    deviceready: function() {
+    	document.getElementById("allRepos").innerHTML = 'connecting...';
     	var xhr = new XMLHttpRequest();
     	 xhr.open('GET', 'https://api.github.com/legacy/repos/search/javascript', true);
     	  // Response handlers.
